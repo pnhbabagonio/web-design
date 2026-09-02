@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My HTML5 Web Page with Bootstrap – Red & Black</title>
+
+    <!-- ===== Bootstrap 5 CSS CDN ===== -->
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    />
+
+    <!-- ===== Custom overrides for red/black theme ===== -->
+    <style>
+        /* ----- Smooth scroll for anchor links ----- */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ----- Card hover effect (red accent) ----- */
+        .card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0.5rem 1rem rgba(220, 53, 69, 0.25) !important;
+        }
+
+        /* ----- Hero / header with red gradient ----- */
+        .hero-section {
+            background: linear-gradient(135deg, #b71c1c 0%, #7f0000 100%);
+            color: #fff;
+            padding: 4rem 1rem;
+            border-radius: 0 0 2rem 2rem;
+            margin-bottom: 2rem;
+        }
+        .hero-section h1 {
+            font-weight: 700;
+        }
+
+        /* ----- Footer (dark) ----- */
+        .footer-custom {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        /* ----- Form focus – red border ----- */
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #dc3545;
+            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+        }
+
+        /* ----- Responsive table tweak ----- */
+        .table-responsive {
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        /* ----- Badge tech (use red) ----- */
+        .badge-tech {
+            font-size: 0.85rem;
+            padding: 0.5rem 0.75rem;
+        }
+
+        /* ----- Image placeholder (optional) ----- */
+        .img-placeholder {
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            border-radius: 0.5rem;
+            color: #6c757d;
+            font-size: 1.1rem;
+        }
+
+        /* ----- Navbar active link highlight (red) ----- */
+        .navbar-dark .navbar-nav .nav-link.active,
+        .navbar-dark .navbar-nav .nav-link:focus,
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #ff6b6b;
+        }
+
+        /* ----- Red border for fieldset legend ----- */
+        fieldset {
+            border-color: #dc3545 !important;
+        }
+        legend {
+            color: #dc3545 !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================================
+    NAVBAR – dark background with red accents
+    ============================================================ -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <!-- Brand with red badge -->
+            <a class="navbar-brand fw-bold" href="#home">
+                <span class="badge bg-danger me-1">CS</span> Learn CS
+            </a>
+
+            <!-- Toggle button for mobile -->
+            <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Me</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#registration">Registration</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#table-section">Courses</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ============================================================
+HERO – red gradient
+============================================================ -->
+<section class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Learn Computer Science</h1>
+        <p class="lead fs-4">Learning Web Design and Development</p>
+        <!-- Badges in red -->
+        <span class="badge bg-danger fs-6 mt-2">★ Bootstrap 5</span>
+        <span class="badge bg-danger fs-6 mt-2">Mobile‑First</span>
+        <span class="badge bg-danger fs-6 mt-2">Responsive</span>
+    </div>
+</section>
+
+<!-- ============================================================
+MAIN CONTENT
+============================================================ -->
+<main class="container">
+
+    <!-- ============================================================
+    ALERT – red variant (alert-danger)
+    ============================================================ -->
+    <div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert">
+        <strong><i class="bi bi-info-circle"></i> Welcome!</strong>
+        This page is built with <strong>Bootstrap 5</strong> following
+        <strong>mobile‑first</strong> principles. Resize your browser or
+        use DevTools to test responsiveness.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <!-- ============================================================
+    SECTION: HOME – Responsive Grid (2 columns on lg+)
+    ============================================================ -->
+    <section id="home" class="mb-5">
+        <div class="row g-4">
+
+            <!-- ---- Left column: main content ---- -->
+            <div class="col-lg-8">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h2 class="card-title text-danger">What is Computer Science?</h2>
+                        <h3 class="card-subtitle mb-3 text-muted">Introduction to Computer Science</h3>
+
+                        <p class="card-text">
+                            Computer science is the study of computers, computational systems, and information processing.
+                            It spans both theoretical study (like algorithms, data structures, and the limits of computation)
+                            and practical application (such as designing software, hardware, and artificial intelligence).
+                        </p>
+
+                        <p class="card-text">
+                            In short, Computer science is the study of how computers work, how to solve problems using technology,
+                            and how to write instructions that tell machines what to do. It is not just about fixing hardware [0.7];
+                            it is the creative science behind software, apps, data, and artificial intelligence.
+                        </p>
+
+                        <!-- Badges as tags (red) -->
+                        <div class="mt-3">
+                            <span class="badge bg-danger badge-tech">Algorithms</span>
+                            <span class="badge bg-danger badge-tech">Data Structures</span>
+                            <span class="badge bg-danger badge-tech">AI</span>
+                            <span class="badge bg-danger badge-tech">Software</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ---- Right column: responsive image + extra info ---- -->
+            <div class="col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-danger">Why Study CS?</h5>
+                        <!-- Responsive image (placeholder) -->
+                        <div class="mb-3">
+                            <img
+                            src="https://via.placeholder.com/400x200/7f0000/ffffff?text=Computer+Science"
+                            alt="Computer Science illustration"
+                            class="img-fluid rounded"
+                            />
+                        </div>
+                        <p class="card-text small">
+                            From building apps to exploring AI, computer science opens doors to
+                            countless career paths.
+                        </p>
+                        <span class="badge bg-danger mt-auto align-self-start">Explore</span>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- /row -->
+    </section>
+
+    <!-- ============================================================
+    SECTION: ABOUT ME – Card with two columns on md+
+    ============================================================ -->
+    <section id="about" class="mb-5">
+        <div class="row g-4">
+
+            <div class="col-md-8">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h2 class="card-title text-danger">About Me</h2>
+                        <h3 class="card-subtitle mb-3 text-muted">My Background</h3>
+
+                        <p>
+                            I am a Senior Computer Science Student at the University of Southern Mindanao,
+                            name is <strong>Philip Neel Babagonio</strong>. I love art, poetry, and magic.
+                        </p>
+
+                        <p>
+                            I am progressively improving my technical skills in this field. Balancing my mortal responsibility
+                            and universal responsibility to seek the truth about this world, to escape the matrix and reconnect
+                            with the creator.
+                        </p>
+
+                        <!-- Badges: skills (red) -->
+                        <div class="mt-3">
+                            <span class="badge bg-danger badge-tech">HTML/CSS</span>
+                            <span class="badge bg-danger badge-tech">JavaScript</span>
+                            <span class="badge bg-danger badge-tech">Python</span>
+                            <span class="badge bg-danger badge-tech">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100 bg-light">
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-danger">Quick Facts</h5>
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-2">
+                                <span class="badge bg-secondary rounded-pill">🎓</span> Senior
+                            </li>
+                            <li class="mb-2">
+                                <span class="badge bg-secondary rounded-pill">📍</span> USM
+                            </li>
+                            <li class="mb-2">
+                                <span class="badge bg-secondary rounded-pill">❤️</span> Art &amp; Poetry
+                            </li>
+                            <li class="mb-2">
+                                <span class="badge bg-secondary rounded-pill">🧠</span> CS Student
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- /row -->
+    </section>
+
+    <!-- ============================================================
+    SECTION: TABLE – Bootstrap Table with dark header (red accent)
+    ============================================================ -->
+    <section id="table-section" class="mb-5">
+        <h2 class="text-danger mb-3">Course Offerings</h2>
+        <div class="table-responsive shadow-sm">
+            <table class="table table-striped table-hover table-bordered align-middle mb-0">
+                <thead class="table-danger"> <!-- red header -->
+                    <tr>
+                        <th>#</th>
+                        <th>Course Code</th>
+                        <th>Course Title</th>
+                        <th>Units</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>ICT 07</td>
+                        <td>Web Design and Development</td>
+                        <td>3</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>CS 101</td>
+                        <td>Introduction to Computer Science</td>
+                        <td>3</td>
+                        <td><span class="badge bg-success">Active</span></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>CS 202</td>
+                        <td>Data Structures and Algorithms</td>
+                        <td>3</td>
+                        <td><span class="badge bg-warning text-dark">Prerequisite</span></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>AI 301</td>
+                        <td>Artificial Intelligence Fundamentals</td>
+                        <td>3</td>
+                        <td><span class="badge bg-secondary">Upcoming</span></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>SE 401</td>
+                        <td>Software Engineering</td>
+                        <td>3</td>
+                        <td><span class="badge bg-info text-dark">Elective</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="text-muted small mt-2">
+            <span class="badge bg-secondary">5 courses</span> displayed.
+        </p>
+    </section>
+
+    <!-- ============================================================
+    SECTION: REGISTRATION FORM – red themed form
+    ============================================================ -->
+    <section id="registration" class="mb-5">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h2 class="card-title text-danger">Student Registration Form</h2>
+                <p class="card-text text-muted">
+                    Please complete the form below. Fields marked with
+                    <span class="text-danger">*</span> are required.
+                </p>
+
+                <form action="#" method="post" class="needs-validation" novalidate>
+
+                    <!-- ===== Personal Information ===== -->
+                    <fieldset class="border rounded-3 p-4 mb-4">
+                        <legend class="float-none w-auto px-2 fw-bold text-danger">Personal Information</legend>
+
+                        <!-- Full Name -->
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label fw-semibold">
+                                Full Name <span class="text-danger">*</span>
+                            </label>
+                            <input
+                            type="text"
+                            class="form-control"
+                            id="fullName"
+                            name="fullName"
+                            placeholder="Enter your full name"
+                            maxlength="100"
+                            required
+                            />
+                            <div class="invalid-feedback">Please enter your full name.</div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-semibold">
+                                Email Address <span class="text-danger">*</span>
+                            </label>
+                            <input
+                            type="email"
+                            class="form-control"
+                            id="email"
+                            name="email"
+                            placeholder="example@email.com"
+                            maxlength="100"
+                            required
+                            />
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label fw-semibold">
+                                Password <span class="text-danger">*</span>
+                            </label>
+                            <input
+                            type="password"
+                            class="form-control"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            minlength="8"
+                            maxlength="30"
+                            required
+                            />
+                            <div class="invalid-feedback">Password must be at least 8 characters.</div>
+                        </div>
+
+                        <!-- Gender (inline radios) -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">
+                                Gender <span class="text-danger">*</span>
+                            </label>
+                            <div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" value="male" required />
+                                    <label class="form-check-label">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" value="female" />
+                                    <label class="form-check-label">Female</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" value="other" />
+                                    <label class="form-check-label">Other</label>
+                                </div>
+                                <div class="invalid-feedback d-block">Please select your gender.</div>
+                            </div>
+                        </div>
+
+                        <!-- Date of Birth -->
+                        <div class="mb-3">
+                            <label for="birthDate" class="form-label fw-semibold">
+                                Date of Birth <span class="text-danger">*</span>
+                            </label>
+                            <input
+                            type="date"
+                            class="form-control"
+                            id="birthDate"
+                            name="birthDate"
+                            required
+                            />
+                            <div class="invalid-feedback">Please select your date of birth.</div>
+                        </div>
+                    </fieldset>
+
+                    <!-- ===== Academic Information ===== -->
+                    <fieldset class="border rounded-3 p-4 mb-4">
+                        <legend class="float-none w-auto px-2 fw-bold text-danger">Academic Information</legend>
+
+                        <!-- Programming Languages (checkboxes) -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Programming Languages</label>
+                            <div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="programmingLanguages" value="html-css" />
+                                    <label class="form-check-label">HTML/CSS</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="programmingLanguages" value="javascript" />
+                                    <label class="form-check-label">JavaScript</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="programmingLanguages" value="python" />
+                                    <label class="form-check-label">Python</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="programmingLanguages" value="java" />
+                                    <label class="form-check-label">Java</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="programmingLanguages" value="php" />
+                                    <label class="form-check-label">PHP</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Course (select) -->
+                        <div class="mb-3">
+                            <label for="course" class="form-label fw-semibold">
+                                Course <span class="text-danger">*</span>
+                            </label>
+                            <select class="form-select" id="course" name="course" required>
+                                <option value="">-- Select your course --</option>
+                                <option value="bsit">Bachelor of Science in Information Technology</option>
+                                <option value="bscs">Bachelor of Science in Computer Science</option>
+                                <option value="bsece">Bachelor of Science in Electronics Engineering</option>
+                                <option value="bsis">Bachelor of Science in Information Systems</option>
+                                <option value="bsem">Bachelor of Science in Entertainment and Multimedia Computing</option>
+                            </select>
+                            <div class="invalid-feedback">Please select your course.</div>
+                        </div>
+                    </fieldset>
+
+                    <!-- ===== Additional Information ===== -->
+                    <fieldset class="border rounded-3 p-4 mb-4">
+                        <legend class="float-none w-auto px-2 fw-bold text-danger">Additional Information</legend>
+
+                        <div class="mb-3">
+                            <label for="comments" class="form-label fw-semibold">Comments</label>
+                            <textarea
+                            class="form-control"
+                            id="comments"
+                            name="comments"
+                            rows="4"
+                            maxlength="500"
+                            placeholder="Enter your comments here…"
+                        ></textarea>
+                        <div class="form-text">Maximum 500 characters.</div>
+                    </div>
+                </fieldset>
+
+                <!-- ===== Form Buttons (red submit) ===== -->
+                <div class="d-flex gap-2 flex-wrap">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="bi bi-check-circle"></i> Submit
+                    </button>
+                    <button type="reset" class="btn btn-secondary">
+                        <i class="bi bi-arrow-counterclockwise"></i> Reset
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+FOOTER – dark background
+============================================================ -->
+<footer class="footer-custom text-center">
+    <div class="container">
+        <p class="mb-0">&copy; 2026 Philip B. HTML5 Web Page. All Rights Reserved.</p>
+        <p class="mb-0 small">ICT 07: Web Design and Development</p>
+        <!-- Badge in footer (red) -->
+        <span class="badge bg-danger mt-2">Built with Bootstrap 5</span>
+    </div>
+</footer>
+
+<!-- ============================================================
+BOOTSTRAP JAVASCRIPT BUNDLE (CDN)
+============================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+</script>
+
+<!-- ============================================================
+CUSTOM JS: Bootstrap form validation (optional)
+============================================================ -->
+<script>
+    (function() {
+        'use strict';
+
+        // Fetch all the forms we want to apply validation to
+        const forms = document.querySelectorAll('.needs-validation');
+
+        // Loop over them and prevent submission if invalid
+        Array.from(forms).forEach(function(form) {
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    // For demo: show a success alert (Bootstrap Alert via JS)
+                    event.preventDefault(); // prevent actual submission for demo
+                    const alertHtml = `
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>✅ Form submitted successfully!</strong> 
+                                Your registration has been recorded.
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        `;
+                    // Insert alert above the form
+                    const cardBody = form.closest('.card-body');
+                    const existingAlert = cardBody.querySelector('.alert-success');
+                    if (existingAlert) existingAlert.remove();
+                    cardBody.insertAdjacentHTML('afterbegin', alertHtml);
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+
+    })();
+</script>
+
+</body>
+</html>

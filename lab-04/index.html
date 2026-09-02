@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSite · Black & Red Bootstrap Lab</title>
+
+    <!-- ============================================================
+    PART A – Bootstrap CSS CDN (official)
+    ============================================================ -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- ============================================================
+    THEME OVERRIDES – Black background · Red & Yellow accents
+    ============================================================ -->
+    <style>
+        /* ----- global theme variables (overriding Bootstrap) ----- */
+        :root {
+            --bs-primary: #D32F2F;
+            --bs-primary-rgb: 211, 47, 47;
+            --bs-secondary: #1A1A1A;
+            --bs-secondary-rgb: 26, 26, 26;
+            --bs-warning: #FFC107;
+            --bs-warning-rgb: 255, 193, 7;
+            --bs-body-bg: #0a0a0a;
+            --bs-body-color: #f0f0f0;
+        }
+
+        /* ----- black background for body and cards ----- */
+        body {
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+        }
+
+        /* ----- apply theme to core Bootstrap classes ----- */
+        .bg-primary { background-color: #D32F2F !important; }
+        .btn-primary {
+            background-color: #D32F2F;
+            border-color: #D32F2F;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background-color: #B71C1C;
+            border-color: #B71C1C;
+            color: #fff;
+        }
+        .btn-outline-primary {
+            color: #D32F2F;
+            border-color: #D32F2F;
+        }
+        .btn-outline-primary:hover {
+            background-color: #D32F2F;
+            border-color: #D32F2F;
+            color: #fff;
+        }
+        .text-primary { color: #D32F2F !important; }
+        .border-primary { border-color: #D32F2F !important; }
+        .bg-warning { background-color: #FFC107 !important; }
+        .text-warning { color: #FFC107 !important; }
+        .border-warning { border-color: #FFC107 !important; }
+
+        /* ----- custom navbar (black with red bottom border) ----- */
+        .navbar-custom {
+            background-color: #0a0a0a !important;
+            border-bottom: 3px solid #D32F2F;
+        }
+        .navbar-custom .navbar-brand {
+            color: #fff;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .navbar-custom .navbar-brand:hover {
+            color: #FFC107;
+        }
+        .navbar-custom .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.75);
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        .navbar-custom .navbar-nav .nav-link:hover,
+        .navbar-custom .navbar-nav .nav-link.active {
+            color: #FFC107 !important;
+        }
+        .navbar-custom .btn-outline-warning {
+            color: #FFC107;
+            border-color: #FFC107;
+        }
+        .navbar-custom .btn-outline-warning:hover {
+            background-color: #FFC107;
+            color: #000;
+        }
+
+        /* ----- hero section (red gradient with yellow accent) ----- */
+        .hero-red {
+            background: linear-gradient(135deg, #B71C1C 0%, #D32F2F 50%, #E53935 100%);
+            color: #fff;
+            padding: 4rem 1rem;
+            border-radius: 0 0 3rem 3rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 8px 24px rgba(211, 47, 47, 0.4);
+        }
+        .hero-red .btn-warning {
+            color: #000;
+            font-weight: 600;
+        }
+        .hero-red .btn-warning:hover {
+            background-color: #FFD54F;
+            border-color: #FFD54F;
+        }
+        .hero-red .btn-outline-light {
+            border-width: 2px;
+        }
+
+        /* ----- cards on black background (dark with red accent) ----- */
+        .card-red-black {
+            background-color: #1a1a1a;
+            border: none;
+            border-top: 5px solid #D32F2F;
+            color: #f0f0f0;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            height: 100%;
+        }
+        .card-red-black:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(211, 47, 47, 0.15);
+        }
+        .card-red-black .card-title {
+            color: #FFC107;
+            font-weight: 700;
+        }
+        .card-red-black .card-text {
+            color: #c0c0c0;
+        }
+        .card-red-black .badge-red {
+            background-color: #D32F2F;
+            color: #fff;
+        }
+        .card-red-black .badge-yellow {
+            background-color: #FFC107;
+            color: #000;
+        }
+
+        /* ----- section titles with red accent bar ----- */
+        .section-title {
+            font-weight: 700;
+            color: #FFC107;
+            margin-bottom: 1.75rem;
+            padding-left: 1rem;
+            border-left: 6px solid #D32F2F;
+        }
+        .section-title .badge {
+            font-size: 0.7rem;
+            vertical-align: middle;
+            background-color: #D32F2F;
+            color: #fff;
+        }
+
+        /* ----- tables (dark theme) ----- */
+        .table-custom {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+        }
+        .table-custom thead {
+            background-color: #0a0a0a;
+            color: #FFC107;
+            border-bottom: 2px solid #D32F2F;
+        }
+        .table-custom tbody tr {
+            border-bottom: 1px solid #2a2a2a;
+        }
+        .table-custom tbody tr:hover {
+            background-color: #2a1a1a !important;
+        }
+        .table-custom .badge-red {
+            background-color: #D32F2F;
+            color: #fff;
+        }
+        .table-custom .badge-yellow {
+            background-color: #FFC107;
+            color: #000;
+        }
+
+        /* ----- form on dark background ----- */
+        .form-dark {
+            background-color: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 1rem;
+            padding: 1.5rem;
+        }
+        .form-dark .form-label {
+            color: #FFC107;
+            font-weight: 600;
+        }
+        .form-dark .form-control,
+        .form-dark .form-select {
+            background-color: #0a0a0a;
+            border: 1px solid #333;
+            color: #f0f0f0;
+        }
+        .form-dark .form-control:focus,
+        .form-dark .form-select:focus {
+            border-color: #D32F2F;
+            box-shadow: 0 0 0 0.25rem rgba(211, 47, 47, 0.3);
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+        }
+        .form-dark .form-text {
+            color: #888;
+        }
+        .form-dark .form-check-label {
+            color: #c0c0c0;
+        }
+
+        /* ----- footer (black with red & yellow) ----- */
+        .footer-black {
+            background-color: #050505;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 2.5rem 0 1.5rem;
+            border-top: 4px solid #D32F2F;
+        }
+        .footer-black a {
+            color: #FFC107;
+            text-decoration: none;
+        }
+        .footer-black a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* ----- progress bars (red & yellow) ----- */
+        .progress-bar-red {
+            background-color: #D32F2F;
+        }
+        .progress-bar-yellow {
+            background-color: #FFC107;
+            color: #000;
+        }
+
+        /* ----- list group on dark background ----- */
+        .list-group-dark {
+            background-color: #1a1a1a;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        .list-group-dark .list-group-item {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            border-bottom: 1px solid #2a2a2a;
+            border-left: none;
+            border-right: none;
+        }
+        .list-group-dark .list-group-item:last-child {
+            border-bottom: none;
+        }
+        .list-group-dark .list-group-item:hover {
+            background-color: #2a1a1a;
+        }
+
+        /* ----- grid demo boxes on black ----- */
+        .grid-box {
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            text-align: center;
+            font-weight: 600;
+        }
+        .grid-box-red { background-color: #D32F2F; color: #fff; }
+        .grid-box-black { background-color: #1a1a1a; color: #FFC107; border: 1px solid #333; }
+        .grid-box-yellow { background-color: #FFC107; color: #000; }
+        .grid-box-dark { background-color: #2a2a2a; color: #fff; }
+
+        /* ----- alert on dark background ----- */
+        .alert-red-black {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+            border-left: 6px solid #FFC107;
+            border-right: 1px solid #2a2a2a;
+            border-top: 1px solid #2a2a2a;
+            border-bottom: 1px solid #2a2a2a;
+        }
+        .alert-red-black .btn-close {
+            filter: invert(1);
+        }
+
+        /* ----- spacing & misc helpers ----- */
+        .bg-black-soft { background-color: #1a1a1a; }
+        .text-yellow { color: #FFC107; }
+        .border-yellow { border-color: #FFC107 !important; }
+        .badge-red { background-color: #D32F2F; color: #fff; }
+        .badge-yellow { background-color: #FFC107; color: #000; }
+        .text-muted-custom { color: #999 !important; }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+    PART C – Responsive Navbar (black with red border)
+    ============================================================ -->
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <!-- Brand with Badge -->
+            <a class="navbar-brand" href="#">
+                <span class="badge bg-warning text-dark me-2">EduSite</span>
+                <span class="d-none d-sm-inline-block text-white-50 small">v3.0</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                        Services
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="#">Web Design</a></li>
+                        <li><a class="dropdown-item" href="#">Development</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Consulting</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+            <div class="d-flex">
+                <button class="btn btn-outline-warning btn-sm me-2">Login</button>
+                <button class="btn btn-warning btn-sm d-none d-lg-inline-block">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ============================================================
+HERO SECTION – Red gradient with yellow CTA
+============================================================ -->
+<section class="hero-red">
+    <div class="container">
+        <div class="row align-items-center g-4">
+            <div class="col-12 col-md-6 text-md-start text-center">
+                <h1 class="display-4 fw-bold">
+                    Build Better <br>
+                    <span class="text-warning">Websites</span>
+                </h1>
+                <p class="lead text-white-50">
+                    Bootstrap 5 makes responsive design effortless.
+                    Mobile‑first, component‑rich, and styled in black, red &amp; yellow.
+                </p>
+                <div class="mt-4 d-flex flex-wrap gap-2 justify-content-center justify-content-md-start">
+                    <button class="btn btn-warning btn-lg px-4">Get Started</button>
+                    <button class="btn btn-outline-light btn-lg px-4">Learn More</button>
+                </div>
+                <!-- extra badges (component demo) -->
+                <div class="mt-3 d-flex flex-wrap gap-1 justify-content-center justify-content-md-start">
+                    <span class="badge bg-warning text-dark">Mobile‑first</span>
+                    <span class="badge bg-light text-dark">RWD</span>
+                    <span class="badge bg-dark text-warning border border-warning">Bootstrap 5</span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 text-center">
+                <!-- Responsive placeholder image -->
+                <div class="bg-dark bg-opacity-25 p-4 rounded-4 shadow-lg">
+                    <img src="https://via.placeholder.com/500x300/1A1A1A/FFC107?text=Black+Red+Yellow" 
+                    class="img-fluid rounded-3" alt="Responsive illustration">
+                    <p class="small text-white-50 mt-2 mb-0">
+                        <code class="text-warning">.img-fluid</code> • responsive placeholder
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+PART B – Main container (wraps grid content)
+============================================================ -->
+<main class="container">
+
+    <!-- ============================================================
+    FEATURES SECTION – 3 responsive cards (col-lg-4, col-md-6, col-12)
+    ============================================================ -->
+    <section class="mb-5">
+        <h2 class="section-title">
+            Core Features
+            <span class="badge">.card</span>
+            <span class="badge">3‑col grid</span>
+        </h2>
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card card-red-black shadow-sm p-3">
+                    <div class="card-body text-center">
+                        <div class="display-6 text-primary mb-2">✓</div>
+                        <h5 class="card-title">Responsive Layout</h5>
+                        <p class="card-text small">Automatically adapts to any device using Bootstrap's mobile‑first grid and flex utilities.</p>
+                        <span class="badge badge-red">mobile‑first</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card card-red-black shadow-sm p-3">
+                    <div class="card-body text-center">
+                        <div class="display-6 text-primary mb-2">⚡</div>
+                        <h5 class="card-title">Lightning Fast</h5>
+                        <p class="card-text small">Pre‑built components and utility classes let you build polished pages in record time.</p>
+                        <span class="badge badge-yellow">rapid dev</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card card-red-black shadow-sm p-3">
+                    <div class="card-body text-center">
+                        <div class="display-6 text-primary mb-2">⚙</div>
+                        <h5 class="card-title">Customizable</h5>
+                        <p class="card-text small">Override variables, add your own styles, and create unique designs — like this black &amp; red theme.</p>
+                        <span class="badge badge-red">flexible</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    ALERT COMPONENT (dark background with yellow border)
+    ============================================================ -->
+    <div class="alert alert-red-black alert-dismissible fade show border-start border-warning border-5 mb-5" role="alert">
+        <strong>🔥 Welcome to EduSite Black Edition!</strong> This page demonstrates
+        Bootstrap 5 with a custom black background, red accents, and yellow highlights.
+        Resize your browser or use DevTools to test responsiveness.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <!-- ============================================================
+    TWO‑COLUMN SECTION: Form + Table
+    ============================================================ -->
+    <section class="row g-4 mb-5">
+        <!-- LEFT: Form -->
+        <div class="col-12 col-md-6">
+            <h4 class="section-title" style="border-left-color: #D32F2F;">
+                Contact Us
+                <span class="badge">.form</span>
+            </h4>
+            <form class="form-dark">
+                <div class="mb-3">
+                    <label for="inputEmail" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com">
+                    <div class="form-text">We'll never share your email.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="inputSubject" class="form-label">Subject</label>
+                    <select class="form-select" id="inputSubject">
+                        <option selected>Choose...</option>
+                        <option>General Inquiry</option>
+                        <option>Technical Support</option>
+                        <option>Feedback</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="inputMessage" class="form-label">Message</label>
+                    <textarea class="form-control" id="inputMessage" rows="3" placeholder="Write your message…"></textarea>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="termsCheck">
+                    <label class="form-check-label small" for="termsCheck">I agree to the terms</label>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 w-sm-auto">Send message</button>
+                <button type="reset" class="btn btn-outline-secondary w-100 w-sm-auto mt-2 mt-sm-0 ms-sm-2">Reset</button>
+            </form>
+        </div>
+
+        <!-- RIGHT: Table -->
+        <div class="col-12 col-md-6">
+            <h4 class="section-title" style="border-left-color: #FFC107;">
+                Class Schedule
+                <span class="badge">.table</span>
+            </h4>
+            <div class="table-responsive rounded-4 shadow-sm">
+                <table class="table table-custom table-hover align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Topic</th>
+                            <th class="text-center">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge bg-dark text-warning border border-warning me-1">Mon</span></td>
+                            <td>Grid System &amp; Layout</td>
+                            <td class="text-center"><span class="badge badge-red">Done</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-dark text-warning border border-warning me-1">Wed</span></td>
+                            <td>Components (Navbar, Cards, Forms)</td>
+                            <td class="text-center"><span class="badge badge-yellow">In progress</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-dark text-warning border border-warning me-1">Fri</span></td>
+                            <td>Final Layout &amp; Utilities</td>
+                            <td class="text-center"><span class="badge bg-secondary">Upcoming</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="small text-muted-custom mt-3 mb-0">
+                <span class="badge bg-light text-dark border me-1">.table-striped</span>
+                <span class="badge bg-light text-dark border me-1">.table-hover</span>
+                <span class="badge bg-dark text-warning border border-warning">.table-custom</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    EXTRA COMPONENTS: Progress Bar + List Group
+    ============================================================ -->
+    <section class="row g-4 mb-5">
+        <div class="col-12 col-md-6">
+            <h4 class="section-title" style="border-left-color: #D32F2F;">
+                Skill Progress
+                <span class="badge">.progress</span>
+            </h4>
+            <div class="bg-black-soft p-4 rounded-4 shadow-sm border border-secondary">
+                <div class="d-flex justify-content-between small mb-1">
+                    <span class="fw-semibold text-light">Bootstrap Mastery</span>
+                    <span class="text-primary">85%</span>
+                </div>
+                <div class="progress mb-3" style="height: 12px;">
+                    <div class="progress-bar progress-bar-red" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="d-flex justify-content-between small mb-1">
+                    <span class="fw-semibold text-light">Responsive Design</span>
+                    <span class="text-primary">70%</span>
+                </div>
+                <div class="progress mb-3" style="height: 12px;">
+                    <div class="progress-bar progress-bar-yellow" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="d-flex justify-content-between small mb-1">
+                    <span class="fw-semibold text-light">JavaScript</span>
+                    <span class="text-primary">50%</span>
+                </div>
+                <div class="progress" style="height: 12px;">
+                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <h4 class="section-title" style="border-left-color: #FFC107;">
+                Quick Links
+                <span class="badge">.list-group</span>
+            </h4>
+            <ul class="list-group list-group-dark">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Documentation
+                    <span class="badge badge-red">new</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Components
+                    <span class="badge badge-yellow">popular</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Themes
+                    <span class="badge bg-secondary">pro</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Support
+                    <span class="badge bg-dark text-warning border border-warning">24/7</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    GRID DEMO – 4 columns on large, 2 on small (responsive)
+    ============================================================ -->
+    <section class="mb-5">
+        <h2 class="section-title">
+            Responsive Grid Demo
+            <span class="badge">.col-*</span>
+        </h2>
+        <div class="row g-3">
+            <div class="col-6 col-md-3">
+                <div class="grid-box grid-box-red">.col-6 .col-md-3</div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="grid-box grid-box-black">.col-6 .col-md-3</div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="grid-box grid-box-yellow">.col-6 .col-md-3</div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="grid-box grid-box-dark">.col-6 .col-md-3</div>
+            </div>
+        </div>
+        <p class="small text-muted-custom mt-2 mb-0">
+            On extra small screens: 2 columns per row &middot; On medium and larger: 4 columns.
+            <span class="badge bg-dark text-warning border border-warning ms-1">mobile‑first</span>
+        </p>
+    </section>
+
+</main>
+
+<!-- ============================================================
+FOOTER – Black with red & yellow accents
+============================================================ -->
+<footer class="footer-black">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-6 text-center text-md-start">
+                <h5 class="fw-bold text-white">EduSite <span class="text-warning">Black Edition</span></h5>
+                <p class="small text-white-50 mb-0">
+                    Built with ❤️ using Bootstrap 5 &bull; Mobile‑first &bull; Responsive
+                </p>
+            </div>
+            <div class="col-12 col-md-6 text-center text-md-end mt-3 mt-md-0">
+                <div class="d-flex flex-wrap justify-content-center justify-content-md-end gap-2">
+                    <span class="badge bg-light text-dark">iPhone SE</span>
+                    <span class="badge bg-light text-dark">iPhone 14</span>
+                    <span class="badge bg-light text-dark">iPad</span>
+                    <span class="badge bg-light text-dark">Samsung</span>
+                </div>
+                <p class="small text-white-50 mt-2 mb-0">
+                    &copy; 2024 EduSite. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================================
+PART A – Bootstrap JavaScript bundle (before closing </body>)
+============================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+</script>
+
+<script>
+    console.log('✅ Bootstrap 5 loaded — Black background, Red & Yellow theme active.');
+    console.log('📱 Use DevTools (F12) → Device Toolbar to test responsive views.');
+</script>
+
+</body>
+</html>
