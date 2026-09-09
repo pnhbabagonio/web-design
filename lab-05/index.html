@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSite · Black & Red Bootstrap Lab</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- THEME OVERRIDES -->
+    <style>
+        :root {
+            --bs-primary: #D32F2F;
+            --bs-warning: #FFC107;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #f0f0f0;
+        }
+
+        .bg-primary { background-color: #D32F2F !important; }
+        .btn-primary { background-color: #D32F2F; border-color: #D32F2F; color: #fff; }
+        .btn-primary:hover { background-color: #B71C1C; border-color: #B71C1C; color: #fff; }
+        .btn-outline-primary { color: #D32F2F; border-color: #D32F2F; }
+        .btn-outline-primary:hover { background-color: #D32F2F; border-color: #D32F2F; color: #fff; }
+        .text-primary { color: #D32F2F !important; }
+        .bg-warning { background-color: #FFC107 !important; }
+        .text-warning { color: #FFC107 !important; }
+
+        /* Navbar */
+        .navbar-custom { background-color: #0a0a0a !important; border-bottom: 3px solid #D32F2F; }
+        .navbar-custom .navbar-brand { color: #fff; font-weight: 700; letter-spacing: 1px; }
+        .navbar-custom .navbar-brand:hover { color: #FFC107; }
+        .navbar-custom .navbar-nav .nav-link { color: rgba(255, 255, 255, 0.75); font-weight: 500; transition: color 0.2s ease; }
+        .navbar-custom .navbar-nav .nav-link:hover, .navbar-custom .navbar-nav .nav-link.active { color: #FFC107 !important; }
+        .navbar-custom .btn-outline-warning { color: #FFC107; border-color: #FFC107; }
+        .navbar-custom .btn-outline-warning:hover { background-color: #FFC107; color: #000; }
+
+        /* Hero */
+        .hero-red { background: linear-gradient(135deg, #B71C1C 0%, #D32F2F 50%, #E53935 100%); color: #fff; padding: 4rem 1rem; border-radius: 0 0 3rem 3rem; margin-bottom: 2.5rem; box-shadow: 0 8px 24px rgba(211, 47, 47, 0.4); }
+        .hero-red .btn-warning { color: #000; font-weight: 600; }
+        .hero-red .btn-warning:hover { background-color: #FFD54F; border-color: #FFD54F; }
+
+        /* Cards & UI */
+        .card-red-black { background-color: #1a1a1a; border: none; border-top: 5px solid #D32F2F; color: #f0f0f0; transition: transform 0.25s ease; height: 100%; }
+        .card-red-black:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(211, 47, 47, 0.15); }
+        .card-red-black .card-title { color: #FFC107; font-weight: 700; }
+        .section-title { font-weight: 700; color: #FFC107; margin-bottom: 1.75rem; padding-left: 1rem; border-left: 6px solid #D32F2F; }
+        .section-title .badge { font-size: 0.7rem; vertical-align: middle; background-color: #D32F2F; color: #fff; }
+
+        /* Table */
+        .table-custom { background-color: #1a1a1a; color: #f0f0f0; }
+        .table-custom thead { background-color: #0a0a0a; color: #FFC107; border-bottom: 2px solid #D32F2F; }
+        .table-custom tbody tr { border-bottom: 1px solid #2a2a2a; }
+        .table-custom tbody tr:hover { background-color: #2a1a1a !important; }
+
+        /* Form styling & Validation UI */
+        .form-dark { background-color: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 1rem; padding: 1.5rem; }
+        .form-dark .form-label { color: #FFC107; font-weight: 600; }
+        .form-dark .form-control { background-color: #0a0a0a; border: 1px solid #333; color: #f0f0f0; }
+        .form-dark .form-control:focus { border-color: #D32F2F; box-shadow: 0 0 0 0.25rem rgba(211, 47, 47, 0.3); color: #f0f0f0; }
+        
+        /* Validation Red Borders */
+        .form-dark .form-control.is-invalid { border-color: #ff4d4d; box-shadow: 0 0 5px rgba(255, 77, 77, 0.5); }
+        
+        .error-text { font-size: 0.85em; color: #ff4d4d; margin-top: 0.35rem; display: block; font-weight: 500; }
+        .success-alert { background-color: rgba(40, 167, 69, 0.15); border-left: 5px solid #28a745; color: #4dd870; padding: 1rem; border-radius: 0.5rem; }
+        .global-error-alert { background-color: rgba(211, 47, 47, 0.15); border-left: 5px solid #D32F2F; color: #ff4d4d; padding: 1rem; border-radius: 0.5rem; }
+
+        /* Footer & Misc */
+        .footer-black { background-color: #050505; padding: 2.5rem 0 1.5rem; border-top: 4px solid #D32F2F; }
+        .progress-bar-red { background-color: #D32F2F; }
+        .progress-bar-yellow { background-color: #FFC107; color: #000; }
+        .list-group-dark .list-group-item { background-color: #1a1a1a; color: #f0f0f0; border-bottom: 1px solid #2a2a2a; border-left: none; border-right: none; }
+        .grid-box { border-radius: 0.75rem; padding: 1.25rem; text-align: center; font-weight: 600; }
+        .grid-box-red { background-color: #D32F2F; color: #fff; }
+        .grid-box-black { background-color: #1a1a1a; color: #FFC107; border: 1px solid #333; }
+        .grid-box-yellow { background-color: #FFC107; color: #000; }
+        .grid-box-dark { background-color: #2a2a2a; color: #fff; }
+        .bg-black-soft { background-color: #1a1a1a; }
+        .badge-red { background-color: #D32F2F; color: #fff; }
+        .badge-yellow { background-color: #FFC107; color: #000; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span class="badge bg-warning text-dark me-2">EduSite</span>
+                <span class="d-none d-sm-inline-block text-white-50 small">v3.0</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-outline-warning btn-sm me-2">Login</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<section class="hero-red">
+    <div class="container">
+        <div class="row align-items-center g-4">
+            <div class="col-12 col-md-6 text-md-start text-center">
+                <h1 class="display-4 fw-bold">Build Better <br><span class="text-warning">Websites</span></h1>
+                <p class="lead text-white-50">Bootstrap 5 makes responsive design effortless.</p>
+                <button class="btn btn-warning btn-lg px-4 mt-2">Get Started</button>
+            </div>
+            <div class="col-12 col-md-6 text-center">
+                <div class="bg-dark bg-opacity-25 p-4 rounded-4 shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="img-fluid rounded-3 shadow" alt="Responsive Web Development Illustration">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<main class="container">
+    <section class="mb-5">
+        <h2 class="section-title">Core Features <span class="badge">.card</span></h2>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card card-red-black shadow-sm p-3">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Responsive Layout</h5>
+                        <p class="card-text small">Automatically adapts to any device.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card card-red-black shadow-sm p-3">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Lightning Fast</h5>
+                        <p class="card-text small">Pre-built components for rapid development.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card card-red-black shadow-sm p-3">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Customizable</h5>
+                        <p class="card-text small">Easily match your brand theme.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TWO-COLUMN SECTION: Form + Table -->
+    <section class="row g-4 mb-5">
+        <!-- Student Registration Form -->
+        <div class="col-12 col-md-6">
+            <h4 class="section-title" style="border-left-color: #D32F2F;">
+                Student Registration
+                <span class="badge badge-red">.form</span>
+            </h4>
+            
+            <form id="registrationForm" class="form-dark" novalidate>
+                
+                <!-- Global Error Alert (Hidden by default) -->
+                <div id="globalErrorAlert" class="global-error-alert d-none mb-3">
+                    <strong>⚠️ Registration Failed</strong><br>
+                    Please fix the highlighted errors below.
+                </div>
+
+                <div class="mb-3">
+                    <label for="fullName" class="form-label">Full Name *</label>
+                    <input type="text" class="form-control" id="fullName" placeholder="Juan Dela Cruz">
+                    <span class="error-text" id="nameError"></span>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address *</label>
+                    <input type="email" class="form-control" id="email" placeholder="juan.delacruz@example.com">
+                    <span class="error-text" id="emailError"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password *</label>
+                    <input type="password" class="form-control" id="password" placeholder="********">
+                    <span class="error-text" id="passwordError"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm Password *</label>
+                    <input type="password" class="form-control" id="confirmPassword" placeholder="********">
+                    <span class="error-text" id="confirmError"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label for="age" class="form-label">Age *</label>
+                    <input type="number" class="form-control" id="age" placeholder="20">
+                    <span class="error-text" id="ageError"></span>
+                </div>
+
+                <div class="d-flex flex-column flex-sm-row gap-2">
+                    <button type="submit" class="btn btn-primary px-4">Register</button>
+                    <button type="reset" class="btn btn-outline-secondary px-4">Reset</button>
+                </div>
+
+                <!-- Success Message Container -->
+                <div id="successMessage" class="success-alert d-none mt-4">
+                    <strong>✓ Registration Successful!</strong> <br>
+                    <span id="successText"></span>
+                </div>
+            </form>
+        </div>
+
+        <!-- Right Side UI Elements -->
+        <div class="col-12 col-md-6">
+            <h4 class="section-title" style="border-left-color: #FFC107;">Class Schedule</h4>
+            <div class="table-responsive rounded-4 shadow-sm mb-4">
+                <table class="table table-custom table-hover align-middle mb-0">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Topic</th>
+                            <th class="text-center">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge bg-dark text-warning border border-warning me-1">Mon</span></td>
+                            <td>Grid System</td>
+                            <td class="text-center"><span class="badge badge-red">Done</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-dark text-warning border border-warning me-1">Fri</span></td>
+                            <td>Client-Side Validation</td>
+                            <td class="text-center"><span class="badge bg-secondary">Upcoming</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h4 class="section-title mt-5" style="border-left-color: #D32F2F;">Skill Progress</h4>
+            <div class="bg-black-soft p-4 rounded-4 shadow-sm border border-secondary">
+                <div class="d-flex justify-content-between small mb-1"><span class="fw-semibold text-light">Bootstrap</span><span class="text-primary">85%</span></div>
+                <div class="progress mb-3" style="height: 12px;"><div class="progress-bar progress-bar-red" style="width: 85%;"></div></div>
+                <div class="d-flex justify-content-between small mb-1"><span class="fw-semibold text-light">JavaScript</span><span class="text-primary">50%</span></div>
+                <div class="progress" style="height: 12px;"><div class="progress-bar progress-bar-yellow" style="width: 50%;"></div></div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer-black text-center">
+    <div class="container">
+        <h5 class="fw-bold text-white mb-2">EduSite <span class="text-warning">Black Edition</span></h5>
+        <p class="small text-white-50 mb-0">&copy; 2024 EduSite. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Form Validation Logic -->
+<script src="script.js"></script>
+
+</body>
+</html>
