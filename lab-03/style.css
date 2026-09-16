@@ -1,0 +1,222 @@
+
+/* Base Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #111823; /* Dark background matching the image */
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    background-color: #1e1b1b; /* Very dark grayish-brown header */
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+header h1 {
+    margin: 0 0 15px 0;
+    font-size: 2.5rem;
+}
+
+header p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+/* Navigation Bar Styles */
+nav {
+    background-color: #f45b5b; /* Red accent color */
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content Container */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Space between cards */
+}
+
+/* Card Component Styles */
+.card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.section-title {
+    color: #f45b5b;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.card h3 {
+    color: #222;
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+
+.card p {
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.card p:last-child {
+    margin-bottom: 0;
+}
+
+/* Sub-card styling for the "My Background" section */
+.sub-card {
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    padding: 30px;
+    background-color: #fbfbfb;
+    margin-bottom: 10px;
+}
+
+/* Form Styles */
+form {
+    margin-top: 25px;
+}
+
+fieldset {
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    padding: 25px 20px;
+    margin-bottom: 25px;
+}
+
+legend {
+    color: #f45b5b;
+    font-weight: bold;
+    padding: 0 10px;
+    font-size: 1rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #222;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Prevents padding from increasing width */
+    font-family: inherit;
+    font-size: 14px;
+}
+
+/* Focus state for inputs (blue outline as seen in image) */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #2b6cb0;
+    box-shadow: 0 0 0 1px #2b6cb0;
+}
+
+/* Inline Radio and Checkbox formatting */
+.radio-group,
+.checkbox-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.radio-group label,
+.checkbox-group label {
+    display: inline-flex;
+    align-items: center;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+.radio-group input,
+.checkbox-group input {
+    margin-right: 8px;
+}
+
+/* Buttons */
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-submit {
+    background-color: #f45b5b;
+    color: white;
+}
+
+.btn-submit:hover {
+    background-color: #e34a4a;
+}
+
+.btn-reset {
+    background-color: #727a81;
+    color: white;
+}
+
+.btn-reset:hover {
+    background-color: #5d646b;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #f45b5b;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 6px 0;
+    font-size: 0.9rem;
+}

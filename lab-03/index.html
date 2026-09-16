@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Computer Science</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>Learn Computer Science</h1>
+        <p>Learning Web Design and Development</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#register">Registration Form</a>
+    </nav>
+
+    <div class="container">
+        <!-- Introduction Section -->
+        <section id="home" class="card">
+            <h2 class="section-title">What is Computer Science?</h2>
+            <h3>Introduction to Computer Science</h3>
+            <p>Computer science is the study of computers, computational systems, and information processing. It spans both theoretical study (like algorithms, data structures, and the limits of computation) and practical application (such as designing software, hardware, and artificial intelligence).</p>
+            <p>In short, Computer science is the study of how computers work, how to solve problems using technology, and how to write instructions that tell machines what to do. It is not just about fixing hardware [0.7]; it is the creative science behind software, apps, data, and artificial intelligence.</p>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="card">
+            <h2 class="section-title">About Me</h2>
+            <div class="sub-card">
+                <h3>My Background</h3>
+                <p>I am a Senior Computer Science Student at the University of Southern Mindanao, name is Philip Neel Babagonio. I love art, poetry, and magic.</p>
+                <p>I am progressively improving my technical skills in this field. Balancing my mortal responsibility and universal responsibility to seek the truth about this world, to escape the matrix and reconnect with the creator.</p>
+            </div>
+        </section>
+
+        <!-- Registration Form Section -->
+        <section id="register" class="card">
+            <h2 class="section-title">Student Registration Form</h2>
+            <p>Please complete the form below. Fields marked as required must be filled out before submitting the form.</p>
+            
+            <form action="#" method="post">
+                <!-- Fieldset 1: Personal Information -->
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    <div class="form-group">
+                        <label for="fullname">Full Name:</label>
+                        <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" placeholder="example@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password">
+                    </div>
+                    <div class="form-group">
+                        <label>Gender:</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="gender" value="male"> Male</label>
+                            <label><input type="radio" name="gender" value="female"> Female</label>
+                            <label><input type="radio" name="gender" value="other"> Other</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" id="dob" name="dob">
+                    </div>
+                </fieldset>
+
+                <!-- Fieldset 2: Academic Information -->
+                <fieldset>
+                    <legend>Academic Information</legend>
+                    <div class="form-group">
+                        <label>Programming Languages:</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="lang" value="html"> HTML/CSS</label>
+                            <label><input type="checkbox" name="lang" value="js"> JavaScript</label>
+                            <label><input type="checkbox" name="lang" value="python"> Python</label>
+                            <label><input type="checkbox" name="lang" value="java"> Java</label>
+                            <label><input type="checkbox" name="lang" value="php"> PHP</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="course">Course:</label>
+                        <select id="course" name="course">
+                            <option value="">-- Select your course --</option>
+                            <option value="cs">Computer Science</option>
+                            <option value="it">Information Technology</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <!-- Fieldset 3: Additional Information -->
+                <fieldset>
+                    <legend>Additional Information</legend>
+                    <div class="form-group">
+                        <label for="comments">Comments:</label>
+                        <textarea id="comments" name="comments" rows="4" placeholder="Enter your comments here..."></textarea>
+                    </div>
+                </fieldset>
+
+                <!-- Action Buttons -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">Submit</button>
+                    <button type="reset" class="btn-reset">Reset</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2026 Philip B. HTML5 Web Page. All Rights Reserved.</p>
+        <p>ICT 07: Web Design and Development</p>
+    </footer>
+
+</body>
+</html>
